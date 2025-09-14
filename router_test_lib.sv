@@ -9,7 +9,7 @@ class base_test extends uvm_test;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     rt1 = router_tb::type_id::create("rt1",this);
-    `uvm_info("MSG","base_test build phase executed",UVM_HIGH)
+    `uvm_info(get_type_name(),$sformatf("base_test build phase executed"),UVM_HIGH)
   endfunction
 
   virtual function void end_of_elaboration_phase(uvm_phase phase);
