@@ -6,6 +6,6 @@ class router_tb extends uvm_env;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    `uvm_info("MSG","Testbench build phase executed",UVM_HIGH)
+    `uvm_info(get_type_name(),$sformatf("Testbench build phase executed"),UVM_HIGH)
   endfunction
 endclass
