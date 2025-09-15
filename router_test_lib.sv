@@ -22,6 +22,22 @@ class base_test extends uvm_test;
   endfunction
 endclass
 
+
+class short_packet_test extends base_test;
+  `uvm_component_utils(short_packet_test)
+  function new(string new"short_packet_test",uvm_component parent);
+    super.new(name);
+  endfunction
+
+  virtual function void build_phase(uvm_phase phase);
+    yapp_packet::type_id::set_type_override(short_yapp_packet::get_type());
+    super.build_phase(phase)
+  endfunction
+endclass
+
+
+
+
 class set_config_test extends base_test;
   `uvm_component_utils(set_config_test)
 
