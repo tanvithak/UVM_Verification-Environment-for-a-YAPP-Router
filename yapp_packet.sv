@@ -58,3 +58,15 @@ class yapp_packet extends uvm_sequence_item;
   endfunction
 
 endclass
+
+class short_yapp_packet extends yapp_packet;
+  `uvm_object_utils(short_yapp_packet)
+
+  function new(string name="short_yapp_packet");
+    super.new(name);
+  endfunction
+  //Add a constraint in short_yapp_packet to limit packet length to less than 15.
+  constraint pl{length < 15;}
+  //Add a constraint in short_yapp_packet to exclude an address value of 2.
+  constraint c2{addr!=2'b10;}
+endclass
